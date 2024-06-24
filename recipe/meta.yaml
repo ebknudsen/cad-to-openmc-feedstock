@@ -1,25 +1,26 @@
 {% set name = "cad-to-openmc" %}
-{% set version = "0.3.3a2" %}
+{% set version = "0.3.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  sha256: 15689aff401b196a8b2a95b7571dab9dc328c4b70fd79f38fa812e806fe5c986
+  sha256: 28c3d6ad9ecd3ec972f1bff86fb108fa4b9569775fdf580f50f7756a3d91fe8b
   url: https://github.com/openmsr/CAD_to_OpenMC/archive/refs/tags/v{{ version }}.tar.gz
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
-  skip: True  # [win]
-  skip: True  # [osx]
-  skip: True  # [py<39]
-  skip: True  # [py>311]
+  number: 0
+  skip: true  # [win]
+  skip: true  # [osx]
+  skip: true  # [py<39]
+  skip: true  # [py>311]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - setuptools >=61.0
