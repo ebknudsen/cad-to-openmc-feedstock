@@ -37,6 +37,7 @@ requirements:
     - ocp >=7.7.2
     - trimesh
     - networkx
+    - unidecode
 
 test:
   imports:
